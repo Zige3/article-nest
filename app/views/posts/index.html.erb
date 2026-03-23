@@ -1,0 +1,28 @@
+<h1>All Posts</h1>
+
+<% if logged_in? %>
+  <%= link_to "Create New Post", new_post_path %>
+<% end %>
+
+<% if @posts.any? %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li>
+        <h3><%= link_to post.title, post_path(post) %></h3>
+        <p>By <%= post.user.username %></p>
+        <p><%= truncate(post.body, length: 120) %></p>
+
+        <% if post.tags.any? %>
+          <p>
+            Tags:
+            <% post.tags.each do |tag| %>
+              <%= link_to tag.name, tag_path(tag) %>
+            <% end %>
+          </p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No posts yet.</p>
+<% end %>

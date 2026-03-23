@@ -1,0 +1,8 @@
+<h1>My Profile</h1>
+
+<p><strong>Username:</strong> <%= current_user.username %></p>
+<p><strong>Email:</strong> <%= current_user.email %></p>
+<p><strong>Display Name:</strong> <%= @profile.display_name %></p>
+<p><strong>Bio:</strong> <%= @profile.bio %></p>
+
+<%= link_to "Edit Profile", edit_profile_path %>

@@ -1,0 +1,17 @@
+<h1>Welcome to ArticleNest</h1>
+
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<% if flash[:alert] %>
+  <p><%= flash[:alert] %></p>
+<% end %>
+
+<% if logged_in? %>
+  <p>Hello, <%= current_user.username %>!</p>
+<% else %>
+  <p>Please sign up or log in to start posting.</p>
+<% end %>
+
+<p><%= link_to "View All Posts", posts_path %></p>
